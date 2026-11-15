@@ -1,0 +1,220 @@
+# semantic.toml - what this nest's data *means* (RFC-0016). Read by the MCP `schema`
+# tool, the admin UI, and the scaffolded skill. Edit descriptions freely; the
+# `[table.*.footguns]` are DERIVED from the ABI and regenerated - leave them be.
+
+schema_version = 1
+
+[nest]
+description = "The `pwnpot-nest` nest on base-sepolia. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__appealed]
+description = "`Appealed(uint256,uint256)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Appealed(uint256,uint256) event"
+
+[table.ctf_platform__appealed.columns]
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+disputeID = "The `disputeID` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__appealed.footguns]
+big_ints = [
+    "ctfId",
+    "disputeID",
+]
+overflows_dec = [
+    "ctfId",
+    "disputeID",
+]
+
+[table.ctf_platform__c_t_f_created]
+description = "`CTFCreated(uint256,address)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per CTFCreated(uint256,address) event"
+
+[table.ctf_platform__c_t_f_created.columns]
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+organizer = "The `organizer` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__c_t_f_created.footguns]
+big_ints = ["ctfId"]
+overflows_dec = ["ctfId"]
+
+[table.ctf_platform__credited]
+description = "`Credited(uint256,address,uint256)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Credited(uint256,address,uint256) event"
+
+[table.ctf_platform__credited.columns]
+account = "The `account` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__credited.footguns]
+big_ints = [
+    "ctfId",
+    "amount",
+]
+overflows_dec = [
+    "ctfId",
+    "amount",
+]
+
+[table.ctf_platform__dispute_opened]
+description = "`DisputeOpened(uint256,address)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per DisputeOpened(uint256,address) event"
+
+[table.ctf_platform__dispute_opened.columns]
+contester = "The `contester` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__dispute_opened.footguns]
+big_ints = ["ctfId"]
+overflows_dec = ["ctfId"]
+
+[table.ctf_platform__finalized]
+description = "`Finalized(uint256,bool)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Finalized(uint256,bool) event"
+
+[table.ctf_platform__finalized.columns]
+cheated = "The `cheated` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `cheated = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `cheated = 'true'` or `CAST(cheated AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__finalized.footguns]
+big_ints = ["ctfId"]
+overflows_dec = ["ctfId"]
+bools = ["cheated"]
+
+[table.ctf_platform__instance_created]
+description = "`InstanceCreated(uint256,uint256,address,address)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per InstanceCreated(uint256,uint256,address,address) event"
+
+[table.ctf_platform__instance_created.columns]
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+instance = "The `instance` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+levelIndex = "The `levelIndex` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+player = "The `player` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__instance_created.footguns]
+big_ints = [
+    "ctfId",
+    "levelIndex",
+]
+overflows_dec = [
+    "ctfId",
+    "levelIndex",
+]
+
+[table.ctf_platform__level_solved]
+description = "`LevelSolved(uint256,uint256,address,uint256)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per LevelSolved(uint256,uint256,address,uint256) event"
+
+[table.ctf_platform__level_solved.columns]
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+levelIndex = "The `levelIndex` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+player = "The `player` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+timestamp = "The `timestamp` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__level_solved.footguns]
+big_ints = [
+    "ctfId",
+    "levelIndex",
+    "timestamp",
+]
+overflows_dec = [
+    "ctfId",
+    "levelIndex",
+    "timestamp",
+]
+
+[table.ctf_platform__refund_claimed]
+description = "`RefundClaimed(uint256,address,uint256)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per RefundClaimed(uint256,address,uint256) event"
+
+[table.ctf_platform__refund_claimed.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+player = "The `player` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__refund_claimed.footguns]
+big_ints = [
+    "ctfId",
+    "amount",
+]
+overflows_dec = [
+    "ctfId",
+    "amount",
+]
+
+[table.ctf_platform__ruled]
+description = "`Ruled(uint256,bool)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Ruled(uint256,bool) event"
+
+[table.ctf_platform__ruled.columns]
+cheated = "The `cheated` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `cheated = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `cheated = 'true'` or `CAST(cheated AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__ruled.footguns]
+big_ints = ["ctfId"]
+overflows_dec = ["ctfId"]
+bools = ["cheated"]
+
+[table.ctf_platform__ruling]
+description = "`Ruling(address,uint256,uint256)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Ruling(address,uint256,uint256) event"
+
+[table.ctf_platform__ruling.columns]
+_arbitrator = "The `_arbitrator` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+_disputeID = "The `_disputeID` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+_ruling = "The `_ruling` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__ruling.footguns]
+big_ints = [
+    "_disputeID",
+    "_ruling",
+]
+overflows_dec = [
+    "_disputeID",
+    "_ruling",
+]
+
+[table.ctf_platform__ticket_bought]
+description = "`TicketBought(uint256,address)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per TicketBought(uint256,address) event"
+
+[table.ctf_platform__ticket_bought.columns]
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+player = "The `player` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__ticket_bought.footguns]
+big_ints = ["ctfId"]
+overflows_dec = ["ctfId"]
+
+[table.ctf_platform__voted]
+description = "`Voted(uint256,address,bool)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Voted(uint256,address,bool) event"
+
+[table.ctf_platform__voted.columns]
+cheated = "The `cheated` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `cheated = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `cheated = 'true'` or `CAST(cheated AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+ctfId = "The `ctfId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+voter = "The `voter` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__voted.footguns]
+big_ints = ["ctfId"]
+overflows_dec = ["ctfId"]
+bools = ["cheated"]
+
+[table.ctf_platform__withdrawn]
+description = "`Withdrawn(address,uint256)` events emitted by the `ctf_platform` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Withdrawn(address,uint256) event"
+
+[table.ctf_platform__withdrawn.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+to = "The `to` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ctf_platform__withdrawn.footguns]
+reserved_words = ["to"]
+big_ints = ["amount"]
+overflows_dec = ["amount"]
+
+[view]
+
+# Authored views (views/*.sql) are described here so the MCP/`/schema` can render them:
+# [view.your_view_name]
+# description = "What this derivation computes."

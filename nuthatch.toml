@@ -1,0 +1,13 @@
+[nest]
+name = "pwnpot-nest"
+chain = "base-sepolia"
+chain_id = 84532
+rpc_urls = ["https://base-sepolia.gateway.tenderly.co", "https://base-sepolia-rpc.publicnode.com"]
+schema_version = 1
+block_timestamps = true
+
+[[contracts]]
+alias = "ctf_platform"
+address = "0x3f9745fd1d01c6faf91f4b5fe96241712788a2b1"
+start_block = 55200071
+abi = "abis/ctf_platform.json"
